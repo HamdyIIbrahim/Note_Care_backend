@@ -36,9 +36,9 @@ app.get("/editenode/:id", async (req, res) => {
     const note = await Note.findById(Id).exec();
     res.json({note});
 });
-app.delete("/delete/:id", async (req, res) => {
+app.get("/delete/:id", async (req, res) => {
     const Id = req.params.id;
-    const note = await Note.findByIdAndRemove(Id).exec();
+    const note = await Note.findByIdAndRemove(Id);
     res.json("done");
 });
 app.put("/editenode/:id", async (req, res) => {
